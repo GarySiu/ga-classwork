@@ -1,0 +1,14 @@
+Bike
+  rent
+  return
+  break
+  fix
+  transport
+Dock
+  availible?
+  bike_count
+  capacity
+Garage
+  capacity
+Van
+  capacity
