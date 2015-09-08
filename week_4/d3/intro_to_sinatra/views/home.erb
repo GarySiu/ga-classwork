@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sinantra</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1> <%= @header %> </h1>
+<ul>
+  <% @data[:hobbies].each do |hobby| %>
+  <li><%= hobby %></li>
+  <% end %>
+</ul>
+<img src="/images/catwalkcycle.gif" alt="">
+</body>
+<script src="/js/jquery-2.1.4.min.js"></script>
+<script src="/js/main.js"></script>
+</html>

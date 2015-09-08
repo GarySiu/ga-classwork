@@ -7,8 +7,8 @@ Bike
 Dock
   availible?
   bike_count
-  capacity
+  CAPACITY
 Garage
-  capacity
+  CAPACITY
 Van
-  capacity
+  CAPACITY

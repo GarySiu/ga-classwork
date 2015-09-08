@@ -1,0 +1,3 @@
+<% @list_todos.each do |note| %>
+<%="<p><a href=\"/notes/#{note['id']}\">#{note['id']}</a> #{note['title']} - #{note['task']}</p>" %>
+<% end %>

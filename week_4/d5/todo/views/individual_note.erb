@@ -1,0 +1,4 @@
+<% @list_todos.each do |note| %>
+<%="<p><a href=\"/#{note['id']}\">#{note['id']}</a> #{note['title']} - #{note['task']}</p>" %>
+<% end %>
+<a href="/new">Create a new todo!</a>

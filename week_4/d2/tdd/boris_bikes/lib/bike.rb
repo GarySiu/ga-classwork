@@ -1,7 +1,7 @@
 class Bike
 
   def initialize
-    @broken = false
+    @broken = false  #could replace this with just 'fix' to refactor but unclear
   end
 
   def broken?

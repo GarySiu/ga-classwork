@@ -1,0 +1,3 @@
+<% @movie_list.each do |movie| %>
+<%= "<p><a href=\"/movies/#{movie['title']}\">#{movie['title']}</a>- #{movie['plot']}</p>" %>
+<% end %>
