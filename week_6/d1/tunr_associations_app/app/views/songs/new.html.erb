@@ -1,0 +1,11 @@
+<% if @error %>
+  <%=  "Error: #{@error}" %>
+<% end %>
+
+<%= form_for @song do |f| %>
+  <div><%= f.label :title, 'Song title:' %>
+  <%= f.text_field :title %></div>
+  <div><%= f.label :artist_id, 'Artist name:' %>
+  <%= f.select :artist_id, options_from_collection_for_select(@artists, 'id', 'name') %></div>
+  <div><%= f.submit 'Add a song' %></div>
+<% end %>

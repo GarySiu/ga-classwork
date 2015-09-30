@@ -1,0 +1,2 @@
+class CrispsController < ApplicationController
+end

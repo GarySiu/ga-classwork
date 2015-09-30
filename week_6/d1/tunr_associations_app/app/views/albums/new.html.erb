@@ -1,0 +1,13 @@
+<% if @error %>
+  <%=  "Error: #{@error}" %>
+<% end %>
+
+<%= form_for @album do |f| %>
+  <div><%= f.label :name, 'Album name:' %>
+  <%= f.text_field :name %></div>
+  <div><%= f.label :year, 'Year:' %>
+  <%= f.date_field :year %></div>
+  <div><%= f.label :image, 'Image:' %>
+  <%= f.file_field :image %></div>
+  <div><%= f.submit 'Add a song' %></div>
+<% end %>

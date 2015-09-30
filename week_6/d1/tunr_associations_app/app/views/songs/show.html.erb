@@ -1,0 +1,9 @@
+<div class="song">
+  <h2><%= @song.title %></h2>
+  <h3>Appears in:</h3>
+    <ul>
+    <% @albums.each do |album| %>
+    <li><%= link_to(album.name, album) %><%= link_to(image_tag("#{album.image}"), album) %></li>
+    <% end %>
+  </ul>
+</div>
