@@ -1,0 +1,46 @@
+var express = require('express')
+var app = express()
+var morgan = require('morgan')
+var port = process.env.PORT || 3000
+var instagram = require('instagram-node-lib')
+var bodyParser = require('body-parser')
+var server = require('http').createServer(app)
+var io = require('socket.io')(server)
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+app.use(morgan('dev'))
+app.use(express.static(__dirname + '/public'))
+app.set('view engine', 'ejs')
+app.set('views', './views')
+
+
+app.get('/', function(req,res){
+  res.render('index')
+})
+
+instagram.set('client_id', process.env.INSTAGRAM_CLIENT_ID)
+instagram.set('client_secret', process.env.INSTAGRAM_CLIENT_SECRET)
+
+instagram.subscriptions.subscribe({
+  object: 'tag', 
+  object_id: 'blue'
+})
+
+instagram.set('callback_url', 'http://3c2c6a49.ngrok.io/callback')
+instagram.set('maxSockets', 50);
+
+app.get('/callback', function(request, response){
+  instagram.subscriptions.handshake(request, response); 
+})
+
+app.post('/callback', function(request, response){
+  console.log(request.body)
+  var notification = request.body
+  io.sockets.emit('instagram', notification)
+})
+
+
+app.listen(port, function(){
+  console.log('Sever started on port %s', port)
+})
